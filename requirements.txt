@@ -1,2 +1,2 @@
 flask==2.0.2
-# git+https://github.com/shiragcv/celery-worker.git
+git+https://github.com/shiragcv/celery-worker.git

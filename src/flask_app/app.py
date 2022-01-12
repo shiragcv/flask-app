@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import request
-# from webhooks import tasks
+from celery_worker import tasks
 
 
 app = Flask(__name__)
@@ -11,10 +11,10 @@ def index():
     return 'Hello World!'
 
 
-# @app.route('/event', methods=['POST'])
-# def event():
-#     job = tasks.event.delay(request.get_json())
-#     return job.id
+@app.route('/event', methods=['POST'])
+def event():
+    job = tasks.event.delay(request.get_json())
+    return job.id
 
 
 if __name__ == '__main__':
