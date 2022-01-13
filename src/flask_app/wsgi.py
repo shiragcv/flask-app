@@ -1,3 +1,4 @@
+import socket
 from flask import Flask
 from flask import request
 from celery_worker import tasks
@@ -8,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello World!'
+    return f'Hello World! {socket.gethostname()}'
 
 
 @app.route('/event', methods=['POST'])
