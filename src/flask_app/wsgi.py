@@ -53,7 +53,7 @@ def index():
 def event():
     job = tasks.event.delay({
         'data': request.get_json(),
-        'hostname': {socket.gethostname()}})
+        'hostname': socket.gethostname()})
 
     return job.id
 
