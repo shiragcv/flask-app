@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
+celery-worker = {git = "https://github.com/shiragcv/celery-worker.git"}
 
 [dev-packages]
 

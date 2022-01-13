@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "295fa60b4ad3b19ec29744ec2dfafba79ad5ee9a0b9ff095ac626e3d3981f117"
+            "sha256": "5d55e7e19c022b59e801f38377ad5640096d839fb51cb3b4d218f0eef31322a7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,10 @@
         ]
     },
     "default": {
+        "celery-worker": {
+            "git": "https://github.com/shiragcv/celery-worker.git",
+            "ref": "e13e551248f8de6ea3e23a18d94a1688eb970814"
+        },
         "click": {
             "hashes": [
                 "sha256:353f466495adaeb40b6b5f592f9f91cb22372351c84caeb068132442a4518ef3",
