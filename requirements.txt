@@ -1,4 +1,5 @@
 flask==2.0.2
 redis==4.1.0
 celery==5.2.3
+gunicorn
 git+https://github.com/shiragcv/celery-worker.git
