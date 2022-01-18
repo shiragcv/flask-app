@@ -36,6 +36,7 @@ Sample data:
 
 
 import socket
+import pika
 from flask import Flask
 from flask import request
 from celery_worker import tasks
@@ -51,11 +52,17 @@ def index():
 
 @app.route('/event', methods=['POST'])
 def event():
-    job = tasks.event.delay({
-        'data': request.get_json(),
-        'hostname': socket.gethostname()})
+    connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+    channel = connection.channel()
 
-    return job.id
+    channel.queue_declare(queue='hello')
+    channel.basic_publish(
+        exchange='',
+        routing_key='hello',
+        body=request.get_data())
+
+    connection.close()
+    return '200'
 
 
 if __name__ == '__main__':

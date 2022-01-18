@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 celery-worker = {git = "https://github.com/shiragcv/celery-worker.git"}
+flask = "*"
+pika = "*"
 
 [dev-packages]
 
